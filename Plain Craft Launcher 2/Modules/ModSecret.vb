@@ -7,7 +7,7 @@ Friend Module ModSecret
 #Region "杂项"
 
     '在开源版的注册表与常规版的注册表隔离，以防数据冲突
-    Public Const RegFolder As String = "PCLDebug"
+    Public Const RegFolder As String = "PCLKun"
     '用于微软登录的 ClientId
     Public Const OAuthClientId As String = ""
     'CurseForge API Key
@@ -42,26 +42,19 @@ Friend Module ModSecret
                 MsgBoxStyle.Critical, "运行环境错误")
             Environment.[Exit](ProcessReturnValues.Cancel)
         End If
-        '开源版本提示
-        MyMsgBox($"该版本中无法使用以下特性：
-- CurseForge API 调用：需要你自行申请 API Key，然后添加到 ModSecret.vb 的开头
-- 正版登录：需要你自行申请 Client ID，然后添加到 ModSecret.vb 的开头
-- 更新与联网通知：避免滥用隐患
-- 主题切换：这是需要赞助解锁的纪念性质的功能，别让赞助者太伤心啦……
-- 百宝箱：开发早期往里面塞了些开发工具，整理起来太麻烦了", "开源版本说明")
     End Sub
 
     ''' <summary>
     ''' 获取设备标识码。
     ''' </summary>
     Friend Function SecretGetUniqueAddress() As String
-        Return "0000-0000-0000-0000"
+        Return "该版本中的设备标识码功能被傻逼龙猫吃掉了"
     End Function
 
     Friend Sub SecretLaunchJvmArgs(ByRef DataList As List(Of String))
         Dim DataJvmCustom As String = Setup.Get("VersionAdvanceJvm", Version:=McVersionCurrent)
         DataList.Insert(0, If(DataJvmCustom = "", Setup.Get("LaunchAdvanceJvm"), DataJvmCustom)) '可变 JVM 参数
-        McLaunchLog("当前剩余内存：" & Math.Round(My.Computer.Info.AvailablePhysicalMemory / 1024 / 1024 / 1024 * 10) / 10 & "G")
+        McLaunchLog("当前没有内存：" & Math.Round(My.Computer.Info.AvailablePhysicalMemory / 1024 / 1024 / 1024 * 10) / 10 & "G")
         DataList.Add("-Xmn" & Math.Floor(PageVersionSetup.GetRam(McVersionCurrent) * 1024 * 0.15) & "m")
         DataList.Add("-Xmx" & Math.Floor(PageVersionSetup.GetRam(McVersionCurrent) * 1024) & "m")
         If Not DataList.Any(Function(d) d.Contains("-Dlog4j2.formatMsgNoLookups=true")) Then DataList.Add("-Dlog4j2.formatMsgNoLookups=true")
@@ -216,7 +209,7 @@ Friend Module ModSecret
             Application.Current.Resources("ColorObjectBg1") = CType(ColorBg1, Color)
             ThemeRefreshMain()
         Catch ex As Exception
-            Log(ex, "刷新主题颜色失败", LogLevel.Hint)
+            Log(ex, "该版本中的主题刷新功能被傻逼龙猫吃掉了awa", LogLevel.Hint)
         End Try
     End Sub
     Public Sub ThemeRefreshMain()
@@ -265,7 +258,7 @@ Friend Module ModSecret
     Public IsUpdateStarted As Boolean = False
     Public IsUpdateWaitingRestart As Boolean = False
     Public Sub UpdateCheckByButton()
-        Hint("该版本中不包含更新功能……")
+        Hint("该版本中的更新功能被傻逼龙猫吃掉了awa")
     End Sub
     Public Sub UpdateStart(BaseUrl As String, Slient As Boolean, Optional ReceivedKey As String = Nothing, Optional ForceValidated As Boolean = False)
     End Sub
@@ -285,7 +278,7 @@ Friend Module ModSecret
 
 #Region "联网通知"
 
-    Public ServerLoader As New LoaderTask(Of Integer, Integer)("PCL 服务", Sub() Log("[Server] 该版本中不包含更新通知功能……"), Priority:=ThreadPriority.BelowNormal)
+    Public ServerLoader As New LoaderTask(Of Integer, Integer)("PCL 服务", Sub() Log("[Server] 该版本中的通知功能被傻逼龙猫吃掉了awa"), Priority:=ThreadPriority.BelowNormal)
 
 #End Region
 

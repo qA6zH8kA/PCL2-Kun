@@ -211,6 +211,16 @@ Public Class FormMain
         FrmMain = Me
         FrmLaunchLeft = New PageLaunchLeft
         FrmLaunchRight = New PageLaunchRight
+        
+        '手动设置主题颜色资源
+        Me.Resources("ColorBrush1") = New SolidColorBrush(Color.FromRgb(&H34, &H3D, &H4A))
+        Me.Resources("ColorBrush2") = New SolidColorBrush(Color.FromRgb(&HB, &H5B, &HCB))
+        Me.Resources("ColorBrush3") = New SolidColorBrush(Color.FromRgb(&H13, &H70, &HF3))
+        Me.Resources("ColorBrush4") = New SolidColorBrush(Color.FromRgb(&H1A, &H8A, &HFF))
+        Me.Resources("ColorBrush5") = New SolidColorBrush(Color.FromRgb(&HFF, &HFF, &HFF))
+        Me.Resources("ColorBrush6") = New SolidColorBrush(Color.FromRgb(&HFF, &HFF, &HFF))
+        Me.Resources("ColorBrush7") = New SolidColorBrush(Color.FromRgb(&HFF, &HFF, &HFF))
+        Me.Resources("ColorBrush8") = New SolidColorBrush(Color.FromRgb(&HFF, &HFF, &HFF))
         '版本号改变
         Dim LastVersion As Integer = Setup.Get("SystemLastVersionReg")
         If LastVersion < VersionCode Then
