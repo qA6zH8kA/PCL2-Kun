@@ -1,4 +1,4 @@
-﻿'由于包含加解密等安全信息，本文件中的部分代码已被删除
+﻿﻿'由于包含加解密等安全信息，本文件中的部分代码已被删除
 
 Imports System.Security.Cryptography
 
@@ -249,7 +249,7 @@ Friend Module ModSecret
         Return True
     End Function
     Friend Function ThemeUnlock(Id As Integer, Optional ShowDoubleHint As Boolean = True, Optional UnlockHint As String = Nothing) As Boolean
-        Return False
+        Return True ' 修改此行，总是返回True以解锁主题
     End Function
     Friend Function ThemeCheckGold(Optional Code As String = Nothing) As Boolean
         Return False
